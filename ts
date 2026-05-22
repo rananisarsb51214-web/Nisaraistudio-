@@ -1,4 +1,30 @@
 import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
+import { processAutomation } from './automation/process-automation';
+import { generateAIResponse } from './ai/generateAIResponse';
+
+admin.initializeApp();
+
+export const syncWorkspaceData = functions.firestore
+  .document('workspaces/{workspaceId}')
+  .onWrite(async (change) => {
+    // sync logic
+  });
+
+export const processAutomationTrigger = functions.https.onCall(async (data, context) => {
+  if (!context.auth) throw new functions.https.HttpsError('unauthenticated', '');
+  return await processAutomation(data);
+});
+
+export const aiRouterCall = functions.https.onCall(async (data, context) => {
+  return await generateAIResponse(data.prompt, data.context);
+});
+
+// Webhook endpoint
+export const handleWebhook = functions.https.onRequest(async (req, res) => {
+  // verify signature, queue background job
+  res.json({ received: true });
+});import * as functions from 'firebase-functions';
 
 export async function generateAIResponse(prompt: string, context?: string) {
   // Hybrid routing logic (same as lib/ai/hybrid-router.ts but for server)
