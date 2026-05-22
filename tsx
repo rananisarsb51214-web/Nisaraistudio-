@@ -1,4 +1,48 @@
-import { getFunctions, httpsCallable } from 'firebase/functions';
+'use client';
+import { useEffect, useState } from 'react';
+import { db } from '@/lib/firebase/client';
+import { collection, query, orderBy, limit, onSnapshot, Timestamp } from 'firebase/firestore';
+
+interface AutomationLog {
+  id: string;
+  message: string;
+  timestamp: Timestamp;   // Firestore Timestamp
+  type: 'info' | 'success' | 'error';
+}
+
+export function LiveAutomationLog() {
+  const [logs, setLogs] = useState<AutomationLog[]>([]);
+
+  useEffect(() => {
+    const q = query(collection(db, 'automation_logs'), orderBy('timestamp', 'desc'), limit(50));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const newLogs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AutomationLog));
+      setLogs(newLogs);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  return (
+    <div className="space-y-2 max-h-96 overflow-y-auto p-2">
+      {logs.length === 0 && (
+        <div className="text-gray-400 text-center p-4">Waiting for automation events...</div>
+      )}
+      {logs.map(log => (
+        <div
+          key={log.id}
+          className={`p-3 glass rounded-xl text-sm border-l-4 ${
+            log.type === 'error' ? 'border-red-500 bg-red-500/5' : 'border-cyan-500 bg-cyan-500/5'
+          }`}
+        >
+          <span className="text-gray-400 font-mono text-xs">
+            {log.timestamp?.toDate().toLocaleTimeString()}
+          </span>
+          <span className="ml-2">{log.message}</span>
+        </div>
+      ))}
+    </div>
+  );
+}import { getFunctions, httpsCallable } from 'firebase/functions';
 import { app } from '@/lib/firebase/client';
 
 const functions = getFunctions(app);
