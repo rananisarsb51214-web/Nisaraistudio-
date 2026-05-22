@@ -1,4 +1,17 @@
-import * as admin from 'firebase-admin';
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  darkMode: 'class',
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      backdropBlur: { xs: '2px' },
+      animation: { 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' },
+    },
+  },
+  plugins: [],
+};
+export default config;import * as admin from 'firebase-admin';
 
 export async function processAutomation(data: any) {
   // ... your automation logic
