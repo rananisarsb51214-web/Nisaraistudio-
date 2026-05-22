@@ -1,4 +1,7 @@
-npm install firebase-admin firebase-functions @types/node# Build & export static site (Next.js output)
+npx create-next-app@latest nisar-studio --typescript --tailwind --eslint --app
+cd nisar-studio
+npm install framer-motion firebase react-firebase-hooks @radix-ui/react-slot class-variance-authority clsx tailwind-merge lucide-react
+npx shadcn-ui@latest initnpm install firebase-admin firebase-functions @types/node# Build & export static site (Next.js output)
 npm run build
 
 # Deploy to Firebase
