@@ -1,4 +1,39 @@
-import * as functions from 'firebase-functions';
+import { generateGemini } from './gemini';
+import { generateClaude } from './claude';
+
+interface RouteDecision {
+  provider: 'gemini' | 'claude';
+  reason: string;
+}
+
+export async function hybridAI(
+  prompt: string,
+  context?: string,
+  options?: { preferLowCost?: boolean; preferLowLatency?: boolean }
+): Promise<string> {
+  const decision = await decideRoute(prompt, options);
+  if (decision.provider === 'gemini') {
+    return generateGemini(prompt, context);
+  } else {
+    return generateClaude(prompt, context);
+  }
+}
+
+async function decideRoute(prompt: string, options?: any): Promise<RouteDecision> {
+  // If Google-native operation (e.g., "send email", "create sheet") -> Gemini
+  const googleOps = /(gmail|calendar|sheets|docs|drive)/i;
+  if (googleOps.test(prompt)) {
+    return { provider: 'gemini', reason: 'Google Workspace operation' };
+  }
+  // Long context (>8k tokens) -> Claude
+  if (prompt.length > 8000 || options?.longContext) {
+    return { provider: 'claude', reason: 'Large context window required' };
+  }
+  if (options?.preferLowCost) return { provider: 'gemini', reason: 'Cost optimization' };
+  if (options?.preferLowLatency) return { provider: 'gemini', reason: 'Latency optimization' };
+  // Default: round‑robin or cost‑aware
+  return { provider: Math.random() > 0.5 ? 'gemini' : 'claude', reason: 'Load balancing' };
+}import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { processAutomation } from './automation/process-automation';
 import { generateAIResponse } from './ai/generateAIResponse';
