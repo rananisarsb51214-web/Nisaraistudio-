@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://ais-dev-epda2kobzs35ubhdpur23s-485413769323.asia-east1.run.app/:path*" }
+  ]
+}
