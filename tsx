@@ -1,4 +1,10 @@
-'use client';
+import { LiveAutomationLog } from '@/components/live-automation-log';
+
+// Inside the grid (e.g., after the AnalyticsWidget)
+<GlassCard className="p-6 col-span-full">
+  <h2 className="text-2xl font-bold mb-4">Live Automation Stream</h2>
+  <LiveAutomationLog />
+</GlassCard>'use client';
 import { useEffect, useState } from 'react';
 import { db } from '@/lib/firebase/client';
 import { collection, query, orderBy, limit, onSnapshot, Timestamp } from 'firebase/firestore';
