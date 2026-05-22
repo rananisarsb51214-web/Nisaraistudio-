@@ -1,4 +1,27 @@
-import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
+
+export async function processAutomation(data: { name: string; [key: string]: any }) {
+  try {
+    // ... your automation logic (e.g., call Gemini/Claude, send email, etc.)
+    console.log(`Executing automation: ${data.name}`);
+
+    // Write success log
+    await admin.firestore().collection('automation_logs').add({
+      message: `✅ Automation "${data.name}" executed successfully`,
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      type: 'success'
+    });
+    return { success: true, message: `Automation ${data.name} done` };
+  } catch (error: any) {
+    // Write error log
+    await admin.firestore().collection('automation_logs').add({
+      message: `❌ Automation "${data.name}" failed: ${error.message}`,
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      type: 'error'
+    });
+    throw error;
+  }
+}import * as functions from 'firebase-functions';
 import { processAutomation } from './automation/process-automation';
 
 export const runAutomation = functions.https.onCall(async (data, context) => {
