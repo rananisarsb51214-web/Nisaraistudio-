@@ -1,4 +1,38 @@
 'use client';
+import { useAuth } from '@/lib/hooks/useAuth';
+import { AnalyticsWidget } from '@/components/analytics-widget';
+import { WorkflowMonitor } from '@/components/workflow-monitor';
+
+export default function Dashboard() {
+  const { user } = useAuth();
+  return (
+    <div className="p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="lg:col-span-2 space-y-6">
+        <GlassCard className="p-6">
+          <h2 className="text-2xl font-bold mb-4">Live Analytics</h2>
+          <AnalyticsWidget />
+        </GlassCard>
+        <GlassCard className="p-6">
+          <h2 className="text-2xl font-bold mb-4">AI Workflow Monitor</h2>
+          <WorkflowMonitor />
+        </GlassCard>
+      </div>
+      <div className="space-y-6">
+        <GlassCard className="p-6">
+          <h3>Cloud Sync Status</h3>
+          <div className="flex items-center gap-2 mt-2 text-green-400">
+            <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+            Google Drive • Live
+          </div>
+        </GlassCard>
+        <GlassCard className="p-6">
+          <h3>User Management</h3>
+          <p>{user?.email || 'Not signed in'}</p>
+        </GlassCard>
+      </div>
+    </div>
+  );
+}'use client';
 import { useState } from 'react';
 import { hybridAI } from '@/lib/ai/hybrid-router';
 
