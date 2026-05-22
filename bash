@@ -1,4 +1,4 @@
-# Build & export static site (Next.js output)
+npm install firebase-admin firebase-functions @types/node# Build & export static site (Next.js output)
 npm run build
 
 # Deploy to Firebase
