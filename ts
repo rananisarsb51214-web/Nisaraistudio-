@@ -1,5 +1,15 @@
 import * as admin from 'firebase-admin';
 
+export async function processAutomation(data: any) {
+  // ... your automation logic
+  await admin.firestore().collection('automation_logs').add({
+    message: `Automation "${data.name}" executed`,
+    timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    type: 'success'
+  });
+  return { success: true };
+}import * as admin from 'firebase-admin';
+
 export async function processAutomation(data: { name: string; [key: string]: any }) {
   try {
     // ... your automation logic (e.g., call Gemini/Claude, send email, etc.)
