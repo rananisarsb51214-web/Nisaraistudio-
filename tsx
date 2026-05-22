@@ -1,4 +1,14 @@
-import { LiveAutomationLog } from '@/components/live-automation-log';
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import { app } from '@/lib/firebase/client';
+
+const functions = getFunctions(app);
+const runAutomation = httpsCallable(functions, 'runAutomation');
+
+// Example usage:
+const handleRun = async () => {
+  const result = await runAutomation({ name: 'Gmail auto-reply', prompt: emailPrompt });
+  console.log(result.data);
+};import { LiveAutomationLog } from '@/components/live-automation-log';
 
 // Inside the grid (e.g., after the AnalyticsWidget)
 <GlassCard className="p-6 col-span-full">
