@@ -1,4 +1,11 @@
-https://nisar-studio.vercel.appNEXT_PUBLIC_API_URL=https://ais-dev-epda2kobzs35ubhdpur23s-485413769323.asia-east1.run.appcd functions
+# Build & export static site (Next.js output)
+npm run build
+
+# Deploy to Firebase
+firebase deploy --only hosting,functions,firestore
+
+# Optional: Python AI service on Cloud Run
+gcloud run deploy nisar-ai-worker --source ./services/python-aihttps://nisar-studio.vercel.appNEXT_PUBLIC_API_URL=https://ais-dev-epda2kobzs35ubhdpur23s-485413769323.asia-east1.run.appcd functions
 npm install firebase-admin
 npm run build
 cd ..
