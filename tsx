@@ -1,4 +1,38 @@
-{/* Built with AI Studio Section */}
+'use client';
+import { useState } from 'react';
+import { hybridAI } from '@/lib/ai/hybrid-router';
+
+export default function Automation() {
+  const [emailPrompt, setEmailPrompt] = useState('');
+  const [generatedReply, setGeneratedReply] = useState('');
+
+  const handleGmailAutoReply = async () => {
+    const result = await hybridAI(`Write a professional email reply: ${emailPrompt}`);
+    setGeneratedReply(result);
+  };
+
+  return (
+    <div className="p-6 max-w-4xl mx-auto space-y-8">
+      <GlassCard className="p-6">
+        <h2 className="text-2xl font-bold">Gmail Auto‑Reply</h2>
+        <textarea
+          className="w-full mt-4 p-3 bg-black/50 border border-white/20 rounded-xl"
+          rows={3}
+          placeholder="Describe the email you received..."
+          value={emailPrompt}
+          onChange={(e) => setEmailPrompt(e.target.value)}
+        />
+        <NeonButton onClick={handleGmailAutoReply} className="mt-4">Generate Reply</NeonButton>
+        {generatedReply && (
+          <div className="mt-6 p-4 glass rounded-xl">
+            <p className="font-mono text-sm">{generatedReply}</p>
+          </div>
+        )}
+      </GlassCard>
+      {/* Calendar automation, Docs generator similar */}
+    </div>
+  );
+}{/* Built with AI Studio Section */}
 <section className="py-20 px-4 max-w-7xl mx-auto text-center">
   <GlassCard className="p-8 flex flex-col items-center gap-6">
     <img
