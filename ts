@@ -1,4 +1,33 @@
-import type { Config } from 'tailwindcss';
+import * as functions from 'firebase-functions';
+
+export async function generateAIResponse(prompt: string, context?: string) {
+  // Hybrid routing logic (same as lib/ai/hybrid-router.ts but for server)
+  const useGemini = prompt.includes('gmail') || Math.random() > 0.5;
+  if (useGemini) {
+    const { GoogleGenerativeAI } = await import('@google/generative-ai');
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+    const result = await model.generateContent(prompt);
+    return result.response.text();
+  } else {
+    // Claude API call
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': process.env.CLAUDE_API_KEY!,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'claude-3-opus-20240229',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    });
+    const data = await response.json();
+    return data.content[0].text;
+  }
+}import type { Config } from 'tailwindcss';
 
 const config: Config = {
   darkMode: 'class',
