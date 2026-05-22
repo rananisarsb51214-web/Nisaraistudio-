@@ -1,4 +1,33 @@
-'use client';
+{/* Built with AI Studio Section */}
+<section className="py-20 px-4 max-w-7xl mx-auto text-center">
+  <GlassCard className="p-8 flex flex-col items-center gap-6">
+    <img
+      width="600"
+      height="auto"
+      alt="GHBanner"
+      src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6"
+      className="rounded-xl shadow-lg w-full max-w-2xl"
+    />
+    <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text text-transparent">
+      Built with AI Studio
+    </h2>
+    <p className="text-gray-300 text-lg max-w-2xl">
+      The fastest path from prompt to production with Gemini.
+    </p>
+    <div className="flex flex-wrap gap-4 justify-center">
+      <NeonButton href="https://aistudio.google.com/apps" target="_blank">
+        Start building →
+      </NeonButton>
+      <NeonButton
+        variant="outline"
+        href="https://ais-dev-epda2kobzs35ubhdpur23s-485413769323.asia-east1.run.app"
+        target="_blank"
+      >
+        Live Demo
+      </NeonButton>
+    </div>
+  </GlassCard>
+</section>'use client';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/glass-card';
 import { NeonButton } from '@/components/neon-button';
