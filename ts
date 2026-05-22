@@ -1,4 +1,12 @@
-import * as admin from 'firebase-admin';
+// lib/firebase/client.ts
+import { initializeApp, getApps } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
+const firebaseConfig = { /* your config */ };
+const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);import * as admin from 'firebase-admin';
 
 export async function processAutomation(data: { name: string }) {
   try {
