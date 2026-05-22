@@ -1,4 +1,10 @@
-// lib/firebase/client.ts
+import * as functions from 'firebase-functions';
+import { processAutomation } from './automation/process-automation';
+
+export const runAutomation = functions.https.onCall(async (data, context) => {
+  if (!context.auth) throw new functions.https.HttpsError('unauthenticated', 'Must be logged in');
+  return await processAutomation(data);
+});// lib/firebase/client.ts
 import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
