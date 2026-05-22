@@ -1,4 +1,4 @@
-NEXT_PUBLIC_API_URL=https://ais-dev-epda2kobzs35ubhdpur23s-485413769323.asia-east1.run.appcd functions
+https://nisar-studio.vercel.appNEXT_PUBLIC_API_URL=https://ais-dev-epda2kobzs35ubhdpur23s-485413769323.asia-east1.run.appcd functions
 npm install firebase-admin
 npm run build
 cd ..
