@@ -1,4 +1,8 @@
-exports.createTask = async (req, res) => {
+import { onSnapshot, doc } from "firebase/firestore";
+
+onSnapshot(doc(db, "tasks", taskId), (snap) => {
+  console.log("Task update:", snap.data());
+});exports.createTask = async (req, res) => {
   const db = admin.firestore();
 
   const task = {
