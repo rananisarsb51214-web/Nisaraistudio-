@@ -1,4 +1,13 @@
-<div align="center">
+{
+  "id": "task_123",
+  "type": "code | write | research | debug",
+  "input": "Build login system",
+  "status": "queued | running | done | failed",
+  "priority": 1,
+  "agent": null,
+  "retries": 0,
+  "createdAt": 1710000000
+}<div align="center">
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
 
