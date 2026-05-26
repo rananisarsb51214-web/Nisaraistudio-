@@ -1,0 +1,10 @@
+{
+  "id": "task_123",
+  "type": "code | write | research | debug",
+  "input": "Build login system",
+  "status": "queued | running | done | failed",
+  "priority": 1,
+  "agent": null,
+  "retries": 0,
+  "createdAt": 1710000000
+}
