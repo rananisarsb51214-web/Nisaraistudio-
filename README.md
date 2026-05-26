@@ -18,3 +18,18 @@ View your app in AI Studio: https://ai.studio/apps/49bb3b8a-ed5d-4b55-8d2d-6752b
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+Client
+  ↓
+Firebase Auth
+  ↓
+Firestore (tasks queue)
+  ↓
+Cloud Functions (Orchestrator)
+  ↓
+Agent Router (Claude multi-agent layer)
+  ↓
+Execution Workers
+  ↓
+Firestore (results + logs)
+  ↓
+Realtime Sync (client updates)
