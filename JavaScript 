@@ -10,6 +10,18 @@ async function safeExecute(fn, retries = 3) {
   }
 
   throw lastError;
+}async function safeExecute(fn, retries = 3) {
+  let lastError;
+
+  for (let i = 0; i < retries; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastError = err;
+    }
+  }
+
+  throw lastError;
 }import { onSnapshot, doc } from "firebase/firestore";
 
 onSnapshot(doc(db, "tasks", taskId), (snap) => {
