@@ -1,4 +1,17 @@
-const axios = require("axios");
+exports.createTask = async (req, res) => {
+  const db = admin.firestore();
+
+  const task = {
+    type: req.body.type,
+    input: req.body.input,
+    status: "queued",
+    createdAt: Date.now(),
+  };
+
+  const ref = await db.collection("tasks").add(task);
+
+  res.json({ taskId: ref.id });
+};const axios = require("axios");
 
 async function getClaudeResponse({ system, input }) {
   const res = await axios.post(
