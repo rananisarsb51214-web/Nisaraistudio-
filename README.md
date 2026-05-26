@@ -1,4 +1,11 @@
 {
+  "taskId": "task_123",
+  "output": "...",
+  "agent": "code-agent",
+  "tokensUsed": 1200,
+  "latencyMs": 3200,
+  "createdAt": 1710000000
+}{
   "id": "task_123",
   "type": "code | write | research | debug",
   "input": "Build login system",
