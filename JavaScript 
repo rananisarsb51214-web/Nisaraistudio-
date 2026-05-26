@@ -1,4 +1,16 @@
-import { Queue } from "bullmq";
+export class ToolRegistry {
+  constructor() {
+    this.tools = new Map();
+  }
+
+  register(name, tool) {
+    this.tools.set(name, tool);
+  }
+
+  get(name) {
+    return this.tools.get(name);
+  }
+}import { Queue } from "bullmq";
 
 export const aiQueue = new Queue("ai-jobs", {
   connection: {
