@@ -1,4 +1,25 @@
-const admin = require("firebase-admin");
+const db = require("firebase-admin").firestore();
+
+async function selectAgent(type) {
+  const snapshot = await db.collection("agents")
+    .where("name", "==", mapTypeToAgent(type))
+    .limit(1)
+    .get();
+
+  return snapshot.docs[0].data();
+}
+
+function mapTypeToAgent(type) {
+  switch (type) {
+    case "code": return "code-agent";
+    case "write": return "writer-agent";
+    case "research": return "research-agent";
+    case "debug": return "debug-agent";
+    default: return "planner-agent";
+  }
+}
+
+module.exports = { selectAgent };const admin = require("firebase-admin");
 const { getClaudeResponse } = require("./claude");
 
 admin.initializeApp();
