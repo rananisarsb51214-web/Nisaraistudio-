@@ -4,3 +4,64 @@
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
+{
+  "name": "Nisarai Studio",
+  "version": "1.0.0",
+  "description": "High-performance AI-powered creative automation studio for Muhammed Nisar.",
+  "mode": "production",
+  "architecture": {
+    "frontend": "Next.js + Tailwind + PWA",
+    "backend": "Node.js (Express/Fastify)",
+    "database": "Firebase Firestore",
+    "auth": "Firebase Auth (JWT + session persistence)",
+    "storage": "Firebase Storage",
+    "functions": "Google Cloud Functions",
+    "ai_layer": "Claude API + modular agent system"
+  },
+  "majorCapabilities": [
+    "AI content generation engine",
+    "Automated workflow orchestration",
+    "Real-time collaboration system",
+    "Cloud-synced project workspace",
+    "AI code generation and refactoring",
+    "Media generation pipeline",
+    "Task automation scheduler",
+    "Analytics and usage telemetry",
+    "Multi-agent AI routing system",
+    "Webhook + API integration layer"
+  ],
+  "security": {
+    "auth_strategy": "JWT + Firebase rules hardened",
+    "data_encryption": "AES-256 at rest, TLS in transit",
+    "rate_limiting": true,
+    "role_based_access": true,
+    "audit_logs": true,
+    "abuse_detection": true
+  },
+  "automation": {
+    "event_driven_system": true,
+    "cron_scheduler": "Cloud Scheduler",
+    "queue_system": "Pub/Sub",
+    "auto_backup_interval": "6h",
+    "self_healing_functions": true
+  },
+  "resilience": {
+    "rollback_support": true,
+    "versioned_deployments": true,
+    "failover_mode": "multi-region cold standby",
+    "error_recovery_pipeline": true
+  },
+  "devops": {
+    "ci_cd": "GitHub Actions → GCP",
+    "environment_strategy": ["dev", "staging", "prod"],
+    "infra_as_code": "Terraform",
+    "logging": "Stackdriver + custom traces"
+  },
+  "requestFramePermissions": [],
+  "majorFlags": {
+    "verboseMode": false,
+    "autoExecute": true,
+    "strictErrorHandling": true,
+    "no_placeholder_code": true
+  }
+}
