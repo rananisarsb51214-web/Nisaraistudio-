@@ -1,4 +1,9 @@
 {
+  "name": "code-agent",
+  "model": "claude-3-opus",
+  "systemPrompt": "You are a senior software engineer...",
+  "capabilities": ["typescript", "firebase", "api-design"]
+}{
   "taskId": "task_123",
   "output": "...",
   "agent": "code-agent",
