@@ -8,7 +8,12 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/49bb3b8a-ed5d-4b55-8d2d-6752b06ea87a
 
-## Run Locally
+## Run LocallyPlanner Agent → breaks tasks
+💻 Code Agent → generates code
+🔍 Research Agent → extracts knowledge
+✍️ Writer Agent → content generation
+🛠️ Debug Agent → fixes errors
+🔄 Orchestrator Agent → decides routing
 
 **Prerequisites:**  Node.js
 
