@@ -1,4 +1,11 @@
-async function safeExecute(fn, retries = 3) {
+import { Queue } from "bullmq";
+
+export const aiQueue = new Queue("ai-jobs", {
+  connection: {
+    host: "localhost",
+    port: 6379,
+  },
+});async function safeExecute(fn, retries = 3) {
   let lastError;
 
   for (let i = 0; i < retries; i++) {
