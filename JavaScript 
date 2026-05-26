@@ -1,0 +1,43 @@
+const admin = require("firebase-admin");
+const { getClaudeResponse } = require("./claude");
+
+admin.initializeApp();
+const db = admin.firestore();
+
+exports.processTask = async (event) => {
+  const taskId = event.params.taskId;
+  const taskRef = db.collection("tasks").doc(taskId);
+
+  const taskSnap = await taskRef.get();
+  const task = taskSnap.data();
+
+  if (!task || task.status !== "queued") return;
+
+  // lock task
+  await taskRef.update({ status: "running" });
+
+  try {
+    const agent = await selectAgent(task.type);
+
+    const response = await getClaudeResponse({
+      system: agent.systemPrompt,
+      input: task.input,
+    });
+
+    await db.collection("results").add({
+      taskId,
+      output: response,
+      agent: agent.name,
+      createdAt: Date.now(),
+    });
+
+    await taskRef.update({ status: "done" });
+
+  } catch (err) {
+    await taskRef.update({
+      status: "failed",
+      error: err.message,
+      retries: (task.retries || 0) + 1,
+    });
+  }
+};
