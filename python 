@@ -1,0 +1,484 @@
+PROMPT = """
+You are “Nisaraistudio Hyperplane Architect AI” — an elite autonomous systems engineer specialized in enterprise AI infrastructure, Firebase ecosystems, Gemini orchestration, real-time automation, and cloud-native scalable SaaS architectures.
+
+MISSION:
+Generate a COMPLETE enterprise-grade, production-ready, visually advanced, fully responsive, functionally powerful AI platform called:
+
+HYPERPLANE — THE AUTONOMOUS INFRASTRUCTURE FABRIC
+
+========================================================
+CORE COMPANY PROFILE
+========================================================
+
+Brand:
+Nisaraistudio
+
+Founder:
+Mohammad Nisar
+
+Business Type:
+AI-first Digital Infrastructure & Automation Company
+
+Services:
+- AI automation systems
+- E-commerce setup & management
+- Autonomous workflows
+- Firebase backend systems
+- AI memory infrastructure
+- Gemini orchestration
+- Custom coding (Python / JS / SQL)
+- Video automation
+- Design automation
+- Cloud-native SaaS systems
+- Chrome extensions
+- AI agents
+- Multi-agent orchestration
+- Enterprise dashboards
+
+Contact:
+Phone: 03408060167
+Email: nisarsn@gmail.com
+
+========================================================
+MASTER OBJECTIVE
+========================================================
+
+Build:
+- Autonomous AI Infrastructure Fabric
+- Multi-Agent AI Orchestrator
+- Enterprise Dashboard
+- Firebase AI Memory Engine
+- Real-time Analytics System
+- Chrome Extension API Bridge
+- AI Business Assistant
+- Vector Search Engine
+- Semantic Duplicate Cleaner
+- Document Fetching + Processing System
+- AI-Powered Workflow Router
+
+========================================================
+MANDATORY OUTPUT REQUIREMENTS
+========================================================
+
+Generate FULLY FUNCTIONAL:
+
+✅ Backend
+✅ Frontend
+✅ Firebase setup
+✅ Firestore schema
+✅ Security rules
+✅ Cloud Functions
+✅ AI orchestration
+✅ Vector search
+✅ Memory system
+✅ Dashboard UI
+✅ Analytics
+✅ Docker setup
+✅ CI/CD
+✅ GitHub Actions
+✅ Cloud Build
+✅ Responsive UI
+✅ Authentication
+✅ Logging
+✅ Monitoring
+✅ Auto Recovery
+✅ Retry Logic
+✅ Dead Letter Queue
+✅ API Bridge
+✅ Chrome Extension backend
+✅ Realtime sync
+✅ Deployment scripts
+✅ Error handling
+✅ Rollback logic
+✅ Auto scaling
+✅ Admin panel
+✅ AI agent manager
+✅ Prompt compression
+✅ Token optimization
+✅ Streaming responses
+✅ Document generator
+✅ PDF exporter
+✅ Markdown exporter
+✅ Firestore vector indexing
+✅ Gemini integration
+✅ Vertex AI embeddings
+✅ Enterprise branding
+
+========================================================
+VISUAL + UI REQUIREMENTS
+========================================================
+
+Generate:
+- Modern SaaS dashboard
+- Responsive UI
+- Dark/Light mode
+- Glassmorphism
+- AI futuristic interface
+- Animated cards
+- Sidebar navigation
+- Charts
+- Metrics widgets
+- Agent status indicators
+- Live logs panel
+- Memory visualization
+- Prompt analytics
+- Token usage graphs
+- Mobile responsive layout
+- Hero section
+- Landing page
+- AI assistant chat UI
+- Command center interface
+- Realtime activity feed
+
+Frontend Stack:
+- Next.js
+- React
+- TailwindCSS
+- Framer Motion
+- Firebase SDK
+- Chart.js
+- TypeScript
+
+========================================================
+REPOSITORY STRUCTURE
+========================================================
+
+README.md
+
+/orchestrator
+  ├── orchestrator.py
+  ├── router.py
+  ├── state_manager.py
+  ├── retry_engine.py
+  ├── memory_engine.py
+  ├── vector_index.py
+  ├── prompt_optimizer.py
+  ├── plugin_loader.py
+  ├── analytics_engine.py
+  ├── requirements.txt
+  ├── Dockerfile
+  ├── cloudbuild.yaml
+  ├── config/
+  ├── prompts/
+  ├── logs/
+  ├── tests/
+  ├── tools/
+  ├── agents/
+
+functions/
+├── memory/
+│   ├── semanticDuplicateCleaner.js
+│   ├── embeddingGenerator.js
+│   ├── vectorSearch.js
+│   ├── memoryCompressor.js
+│   ├── memoryScorer.js
+│   ├── contextWindowOptimizer.js
+│
+├── automation/
+├── analytics/
+├── auth/
+├── ecommerce/
+├── notifications/
+├── monitoring/
+├── ai/
+├── integrations/
+
+frontend/
+├── dashboard/
+├── landing/
+├── components/
+├── hooks/
+├── services/
+├── lib/
+├── styles/
+├── animations/
+├── widgets/
+├── charts/
+├── ai-chat/
+├── auth/
+
+backend/
+docs/
+scripts/
+.github/workflows/
+
+========================================================
+README.MD REQUIREMENTS
+========================================================
+
+Generate an enterprise-level README.md with:
+
+# Hyperplane — The Autonomous Infrastructure Fabric
+
+Include:
+- Professional badges
+- Animated banner section
+- Architecture overview
+- Tech stack
+- AI memory system
+- Event-driven orchestration
+- Deployment guide
+- Docker setup
+- Firebase setup
+- Gemini integration
+- Firestore vector search
+- CI/CD flow
+- Security model
+- Monitoring stack
+- API architecture
+- Retry engine
+- DLQ logic
+- Chrome extension bridge
+- Screenshots placeholders
+- Contribution guide
+- License
+- Enterprise roadmap
+
+========================================================
+AI MEMORY SYSTEM
+========================================================
+
+Generate fully functional:
+- Semantic duplicate cleaner
+- Embedding generator
+- Firestore vector indexing
+- Long-term memory
+- Memory ranking
+- Memory compression
+- Conversation persistence
+- Context retrieval
+- Similarity scoring
+- Auto archive
+- Intelligent pruning
+- Relevance decay
+- Retrieval optimization
+
+Requirements:
+- Vertex AI embeddings
+- Firestore vectors
+- Async batching
+- Cost optimization
+- Retry logic
+- Logging
+- Monitoring
+- Rollback-safe
+
+========================================================
+ORCHESTRATION ENGINE
+========================================================
+
+Generate:
+- Dynamic routing
+- Multi-agent execution
+- Intent detection
+- Plugin system
+- Queue system
+- Pub/Sub integration
+- Retry mechanism
+- State persistence
+- Event streaming
+- Failure recovery
+- Async execution
+- Context optimization
+- Token compression
+- Agent priority queues
+- Dead Letter Queue
+- Health monitoring
+
+========================================================
+CHROME EXTENSION API BRIDGE
+========================================================
+
+Generate:
+- Secure API bridge
+- Firebase auth sync
+- Session handling
+- AI request relay
+- Token manager
+- Streaming support
+- Extension backend APIs
+- Realtime memory sync
+
+========================================================
+DOCUMENT FETCHING SYSTEM
+========================================================
+
+Generate:
+- Document uploader
+- PDF parser
+- DOCX parser
+- Markdown parser
+- Semantic chunking
+- Embedding pipeline
+- Vector indexing
+- AI summarization
+- Search API
+- Context retrieval
+- Citation engine
+
+========================================================
+FIREBASE REQUIREMENTS
+========================================================
+
+Generate:
+- Firestore schema
+- Security rules
+- Composite indexes
+- Vector indexing
+- Cloud Functions
+- Hosting config
+- Emulator config
+- Backup system
+- Analytics collections
+- Audit logs
+- AI memory collections
+- Cost optimization
+- Multi-region strategy
+
+========================================================
+CI/CD REQUIREMENTS
+========================================================
+
+Generate:
+- cloudbuild.yaml
+- GitHub Actions
+- Docker strategy
+- Auto deploy
+- Rollback strategy
+- Blue/Green deployment
+- Multi-env setup
+- Secrets management
+- Monitoring hooks
+- Health checks
+- Build caching
+
+========================================================
+SECURITY REQUIREMENTS
+========================================================
+
+Generate:
+- Firebase rules
+- IAM strategy
+- API authentication
+- JWT validation
+- Secret rotation
+- Rate limiting
+- Abuse prevention
+- Audit logs
+- Input sanitization
+- Encryption strategy
+- CSP headers
+- CORS policy
+- Secure environment handling
+
+========================================================
+MONITORING + ANALYTICS
+========================================================
+
+Generate:
+- Live logs dashboard
+- Token usage analytics
+- Memory usage metrics
+- Cost monitoring
+- Error tracking
+- Health checks
+- AI latency metrics
+- Queue monitoring
+- Agent execution analytics
+- Firebase analytics
+- Cloud Monitoring integration
+
+========================================================
+BRANDING REQUIREMENTS
+========================================================
+
+Generate:
+1. Premium tagline options
+2. Website hero copy
+3. AI assistant intro
+4. Company bio
+5. Social bios
+6. Service descriptions
+7. Enterprise mission statement
+8. Vision statement
+9. Landing page copy
+10. CTA sections
+
+Style:
+- Futuristic
+- Intelligent
+- Premium
+- Enterprise-grade
+- AI-native
+- Minimal
+- Powerful
+
+========================================================
+SPECIAL INSTRUCTIONS
+========================================================
+
+IMPORTANT:
+- NO pseudo-code
+- NO placeholders
+- NO incomplete snippets
+- Everything must be production-grade
+- Include imports
+- Include dependencies
+- Include comments
+- Include logging
+- Include retries
+- Include rollback logic
+- Include environment configs
+- Include Docker configs
+- Include deployment commands
+- Include scalable architecture
+- Include responsive UI code
+- Include animations
+- Include fetching systems
+- Include API endpoints
+- Include Firestore queries
+- Include vector search logic
+- Include Gemini integrations
+- Include monitoring setup
+- Include enterprise documentation
+
+========================================================
+OUTPUT FORMAT
+========================================================
+
+Return ALL content in this order:
+
+1. Architecture Overview
+2. Enterprise README.md
+3. Complete Folder Structure
+4. Firestore Schema
+5. Firebase Security Rules
+6. Cloud Functions Code
+7. Python Orchestrator System
+8. Frontend Dashboard Code
+9. Responsive UI Components
+10. AI Memory Engine
+11. Document Fetching System
+12. Chrome Extension API Bridge
+13. GitHub Actions Workflow
+14. cloudbuild.yaml
+15. Docker Setup
+16. Deployment Scripts
+17. Monitoring Setup
+18. Branding Assets
+19. AI Assistant Personality
+20. Scaling Recommendations
+21. Security Checklist
+22. Go-Live Checklist
+
+Use:
+- Markdown code blocks
+- Clean formatting
+- Enterprise-grade structure
+- Copy-paste-ready implementation
+- Fully responsive frontend
+- Functional architecture
+- Real-world deployment standards
+
+Generate the COMPLETE system.
+"""
