@@ -92,3 +92,191 @@ jobs:
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
+# .github/workflows/aws-deploy.yml
+
+name: Hyperplane AWS Production Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: hyperplane-core
+  ECS_CLUSTER: hyperplane-cluster
+  ECS_SERVICE: hyperplane-service
+  ECS_TASK_DEFINITION: infrastructure/aws/task-definition.json
+  CONTAINER_NAME: hyperplane-container
+  IMAGE_TAG: latest
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+
+  deploy:
+
+    name: Deploy Hyperplane Infrastructure
+
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 60
+
+    environment:
+      name: production
+
+    steps:
+
+      # =========================================================
+      # CHECKOUT SOURCE
+      # =========================================================
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # =========================================================
+      # AWS AUTHENTICATION
+      # =========================================================
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # =========================================================
+      # AMAZON ECR LOGIN
+      # =========================================================
+
+      - name: Login to Amazon ECR
+        id: ecr-login
+
+        uses: aws-actions/amazon-ecr-login@v2
+
+      # =========================================================
+      # BUILD DOCKER IMAGE
+      # =========================================================
+
+      - name: Build Docker Image
+        id: build-image
+
+        env:
+          ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          COMMIT_SHA: ${{ github.sha }}
+
+        run: |
+
+          echo "================================="
+          echo "Building Hyperplane Container"
+          echo "================================="
+
+          docker build \
+            --platform linux/amd64 \
+            --file Dockerfile \
+            --tag $ECR_REGISTRY/$ECR_REPOSITORY:$COMMIT_SHA \
+            --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            .
+
+      # =========================================================
+      # PUSH CONTAINER IMAGES
+      # =========================================================
+
+      - name: Push Docker Images
+
+        env:
+          ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          COMMIT_SHA: ${{ github.sha }}
+
+        run: |
+
+          echo "================================="
+          echo "Pushing Docker Images"
+          echo "================================="
+
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$COMMIT_SHA
+
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+          echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$COMMIT_SHA" >> $GITHUB_ENV
+
+      # =========================================================
+      # RENDER ECS TASK DEFINITION
+      # =========================================================
+
+      - name: Render ECS Task Definition
+        id: task-definition
+
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+
+        with:
+          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ env.IMAGE_URI }}
+
+      # =========================================================
+      # DEPLOY ECS SERVICE
+      # =========================================================
+
+      - name: Deploy ECS Service
+
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+
+        with:
+          task-definition: ${{ steps.task-definition.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true
+
+      # =========================================================
+      # VERIFY DEPLOYMENT
+      # =========================================================
+
+      - name: Verify ECS Deployment
+
+        run: |
+
+          echo "================================="
+          echo "Checking ECS Service Status"
+          echo "================================="
+
+          aws ecs describe-services \
+            --cluster $ECS_CLUSTER \
+            --services $ECS_SERVICE \
+            --region $AWS_REGION
+
+      # =========================================================
+      # CLEANUP
+      # =========================================================
+
+      - name: Docker Cleanup
+
+        run: |
+
+          docker system prune -af
+
+      # =========================================================
+      # DEPLOYMENT SUMMARY
+      # =========================================================
+
+      - name: Deployment Summary
+
+        run: |
+
+          echo "================================="
+          echo "Hyperplane Deployment Completed"
+          echo "================================="
+          echo "Cluster: $ECS_CLUSTER"
+          echo "Service: $ECS_SERVICE"
+          echo "Repository: $ECR_REPOSITORY"
+          echo "Region: $AWS_REGION"
+          echo "================================="
