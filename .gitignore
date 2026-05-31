@@ -6,3 +6,96 @@ coverage/
 *.log
 .env*
 !.env.example
+## 🛡️ Enterprise Source Control Security Framework
+
+The `.gitignore` configuration is a critical component of the Nisar AI Studio security architecture. It acts as the first line of defense against accidental credential exposure, repository contamination, deployment instability, and unnecessary storage growth.
+
+Designed for cloud-native and AI-driven systems, this framework enforces strict repository hygiene across development, testing, deployment, and production environments.
+
+---
+
+### 🔒 Security Protection Layer
+
+The repository automatically excludes:
+
+- Environment secrets
+- API keys and tokens
+- Service account credentials
+- Private certificates
+- Authentication files
+- Cloud configuration secrets
+- Local database snapshots
+- Internal debugging artifacts
+
+This minimizes attack surface exposure and prevents sensitive infrastructure assets from entering version control.
+
+---
+
+### ⚡ Performance Optimization
+
+By excluding generated and temporary files, the repository remains:
+
+- Faster to clone
+- Faster to build
+- Easier to audit
+- Easier to maintain
+- More efficient for CI/CD pipelines
+
+Repository cleanliness directly improves operational efficiency and long-term scalability.
+
+---
+
+### ☁️ Cloud-Native Ready
+
+Built to support modern infrastructure including:
+
+- Firebase
+- Google Cloud Platform
+- Cloud Run
+- Firestore
+- BigQuery
+- Node.js
+- TypeScript
+- AI Agent Systems
+- Distributed Services
+- Event-Driven Architectures
+
+---
+
+### 🚀 Production Deployment Standards
+
+The configuration protects against committing:
+
+- Build outputs
+- Cache directories
+- Runtime logs
+- Generated assets
+- Dependency packages
+- Machine-specific files
+- Temporary development resources
+
+Only source code, documentation, and deployment-critical assets are preserved.
+
+---
+
+### 🔍 Audit & Compliance Philosophy
+
+Every ignored file category is evaluated through three principles:
+
+1. Security
+2. Reliability
+3. Operational Efficiency
+
+This approach reduces risk, improves traceability, and supports enterprise-grade development workflows.
+
+---
+
+### 🌐 Vision
+
+Nisar AI Studio is engineered around a simple principle:
+
+> **Source control should contain knowledge, not noise.**
+>
+> Every commit should represent meaningful progress, every deployment should be reproducible, and every repository should remain secure, scalable, and production-ready from day one.
+
+The `.gitignore` framework is therefore not merely a configuration file—it is a foundational layer of the platform's security, automation, and operational excellence strategy.
