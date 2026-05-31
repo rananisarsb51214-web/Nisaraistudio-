@@ -469,4 +469,70 @@ MEMORY ENGINE: ONLINE
 GPU WORKERS: READY
 VECTOR INDEX: SYNCHRONIZED
 AUTONOMOUS FABRIC: OPERATIONAL
-```
+```import { NextResponse } from "next/server";
+
+export async function POST(req: Request) {
+  const body = await req.json();
+
+  const { prompt } = body;
+
+  // AI logic placeholder (Claude/OpenAI integration ready)
+  const response = {
+    success: true,
+    output: `AI Response for: ${prompt}`
+  };
+
+  return NextResponse.json(response);
+}import { NextResponse } from "next/server";
+
+export async function GET() {
+  return NextResponse.json({
+    status: "ok",
+    system: "Nisar AI Studio Vercel Backend"
+  });
+}import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);export async function generateAI(prompt: string) {
+  // Replace with Claude/OpenAI API
+  return `Generated response for: ${prompt}`;
+}module.exports = {
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  theme: {
+    extend: {}
+  },
+  plugins: []
+};{
+  "framework": "nextjs",
+  "functions": {
+    "app/api/**": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_IDhttps://me.developers.google.com/u/me
+‎https://console.cloud.google.com/agent-platform/overview?project=gen-lang-client-0727141331
+‎={
+  "name": "nisar-ai-studio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.0.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "firebase": "^10.0.0"
+  }
+}
