@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Hyperplane Banner](https://img.shields.io/badge/Nisaraistudio-Hyperplane-black?style=for-the-badge)
+![Hyperplane](https://img.shields.io/badge/Nisaraistudio-Hyperplane-black?style=for-the-badge)
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square)
 ![Firebase](https://img.shields.io/badge/Firebase-Backend-orange?style=flat-square)
@@ -11,129 +11,96 @@
 ![Vertex AI](https://img.shields.io/badge/Vertex-AI-green?style=flat-square)
 ![Cloud Run](https://img.shields.io/badge/Cloud%20Run-GPU%20Workers-red?style=flat-square)
 ![Firestore](https://img.shields.io/badge/Firestore-Vector%20Memory-gold?style=flat-square)
-![License](https://img.shields.io/badge/License-Enterprise-darkgreen?style=flat-square)
 
-### ⚡ Autonomous AI Infrastructure for Multi-Agent Systems
+### ⚡ Enterprise Autonomous AI Infrastructure
 
-**Hyperplane** is an enterprise-grade orchestration fabric engineered by **Nisaraistudio** for intelligent AI routing, semantic memory, autonomous execution, vector-powered retrieval, GPU audio generation, and cloud-native workflow automation.
+Hyperplane is a cloud-native orchestration fabric engineered by Nisaraistudio for:
+- Multi-agent AI systems
+- Semantic memory orchestration
+- GPU audio generation
+- Autonomous workflows
+- Vector-powered retrieval
+- Real-time analytics
+- Enterprise automation
 
 </div>
 
 ---
 
-# 🌌 Vision
+# 🌌 Core Vision
 
-Hyperplane is not just an orchestrator.
+Hyperplane transforms cloud infrastructure into an intelligent autonomous fabric capable of:
 
-It is a living AI infrastructure layer designed to:
-- Route intelligence dynamically
-- Scale autonomous agents
-- Persist long-term memory
-- Generate multimodal content
-- Execute cloud-native automation
-- Build self-healing AI ecosystems
-
-Built for:
-- Enterprise AI Systems
-- AI SaaS Platforms
-- Autonomous Studios
-- Generative Media Pipelines
-- Multi-Agent Workflows
-- Real-time Analytics Platforms
+- Dynamic AI routing
+- Self-healing orchestration
+- Long-term contextual memory
+- Distributed worker execution
+- Real-time AI analytics
+- GPU-powered media generation
+- Enterprise-scale automation
 
 ---
 
-# 🧠 Core Capabilities
+# 🧠 Key Systems
 
-## ⚙️ Autonomous Orchestration
-- Dynamic intent routing
-- Plugin-based worker architecture
-- Async task execution
-- Event-driven processing
-- Priority queue execution
-- Distributed agent coordination
+## ⚙️ Hyperplane Orchestrator
+- Dynamic intent detection
+- Plugin-based routing
+- Retry engine
+- Dead Letter Queue
+- Async execution
+- Multi-agent coordination
 
 ---
 
-## 🧬 AI Memory Engine
-- Firestore vector memory
+## 🧬 Memory Engine
+- Firestore vector indexing
 - Semantic duplicate cleaner
-- Context retrieval
-- Long-term conversational memory
-- Embedding indexing
-- Intelligent compression
-- Similarity ranking
-- Memory decay optimization
+- Context persistence
+- Memory ranking
+- Similarity search
+- Embedding optimization
 
 ---
 
-## 🎵 Lyria 3 Audio Pipeline
-- GPU-powered audio synthesis
+## 🎵 Lyria 3 Audio Engine
+- GPU-powered synthesis
 - AI soundtrack generation
-- Real-time render tracking
-- Cloud Run audio workers
-- Firebase Storage delivery
-- Audio orchestration engine
+- Cloud Run deployment
+- Audio asset management
+- Firebase Storage integration
 
 ---
 
-## 📊 Real-Time Dashboard
-- Live execution feed
-- Agent monitoring
-- Queue analytics
-- Token usage metrics
-- AI memory visualization
-- System health indicators
-- Error monitoring
-- Processing telemetry
+## 📊 Realtime Monitoring
+- Live task tracking
+- Worker analytics
+- Queue telemetry
+- Token usage monitoring
+- Error recovery logs
+- Agent health dashboard
 
 ---
 
-## ☁️ Cloud-Native Infrastructure
-- Google Cloud Run
-- Firebase
-- Firestore
-- Vertex AI
-- Pub/Sub
-- Docker
-- GitHub Actions
-- Cloud Build
-- GPU Workers
-
----
-
-# 🏗 Architecture Overview
+# 🏗 Infrastructure Architecture
 
 ```text
-                    ┌────────────────────┐
-                    │    Frontend UI     │
-                    │  Next.js Dashboard │
-                    └─────────┬──────────┘
-                              │
-                              ▼
-                    ┌────────────────────┐
-                    │ Hyperplane Router  │
-                    │  orchestrator.py   │
-                    └─────────┬──────────┘
-                              │
-        ┌─────────────────────┼─────────────────────┐
-        ▼                     ▼                     ▼
-┌──────────────┐    ┌────────────────┐    ┌────────────────┐
-│ Audio Worker │    │ Memory Worker  │    │ Document Worker│
-│ Lyria 3 GPU  │    │ Vector Engine  │    │ Fetch + Parse  │
-└──────┬───────┘    └────────┬───────┘    └────────┬───────┘
-       │                     │                     │
-       ▼                     ▼                     ▼
-┌─────────────────────────────────────────────────────────┐
-│                    Firestore DB                         │
-│  task_registry | memory_vectors | analytics | logs     │
-└─────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-                  ┌─────────────────────┐
-                  │ Firebase Storage    │
-                  │ Audio / Assets      │
-                  └─────────────────────┘
+Frontend Dashboard
+        │
+        ▼
+Hyperplane Router
+(orchestrator.py)
+        │
+ ┌──────┼───────────────┐
+ ▼      ▼               ▼
+Audio   Memory      Document
+Worker  Worker       Worker
+        │
+        ▼
+Firestore Vector DB
+        │
+        ▼
+Firebase Storage
 ```
 
 ---
@@ -178,44 +145,6 @@ scripts/
 
 ---
 
-# ⚡ AI Workers
-
-## 🎵 audio_worker.py
-GPU-enabled Lyria 3 synthesis engine.
-
-Capabilities:
-- AI soundtrack generation
-- Ambient audio creation
-- Dynamic scoring
-- Audio asset delivery
-- Firebase Storage integration
-
----
-
-## 🧠 memory_worker.py
-Semantic memory engine.
-
-Capabilities:
-- Vector search
-- Context persistence
-- Memory ranking
-- Similarity scoring
-- Long-term recall
-
----
-
-## 📄 document_worker.py
-AI document ingestion pipeline.
-
-Capabilities:
-- PDF parsing
-- DOCX extraction
-- Markdown indexing
-- Embedding generation
-- Semantic retrieval
-
----
-
 # 🔥 Firestore Collections
 
 ```text
@@ -233,49 +162,47 @@ prompt_history/
 
 ---
 
-# 🔄 Event Flow
+# 🔄 Hyperplane Event Flow
 
 ```text
-User Prompt
-    ↓
+User Request
+     ↓
 Intent Detection
-    ↓
-Dynamic Routing
-    ↓
-Worker Execution
-    ↓
-Firestore Logging
-    ↓
-Vector Memory Sync
-    ↓
+     ↓
+Worker Routing
+     ↓
+AI Execution
+     ↓
+Firestore Sync
+     ↓
 Realtime Dashboard Feed
-    ↓
-Storage Delivery
+     ↓
+Asset Delivery
 ```
 
 ---
 
-# 🎛 Real-Time Dashboard Feed
+# 🎛 Realtime Dashboard Feed
 
 ```javascript
 db.collection("task_registry")
   .where("status", "==", "PROCESSING")
   .onSnapshot((snapshot) => {
 
-      snapshot.docChanges().forEach((change) => {
+    snapshot.docChanges().forEach((change) => {
 
-          const task = change.doc.data()
+      const task = change.doc.data()
 
-          console.log("LIVE TASK UPDATE:", task)
+      console.log("LIVE TASK UPDATE:", task)
 
-      })
+    })
 
   })
 ```
 
 ---
 
-# ☁️ Cloud Run GPU Deployment
+# ☁️ GPU Deployment
 
 ```bash
 gcloud run deploy hyperplane-audio-worker \
@@ -291,58 +218,53 @@ gcloud run deploy hyperplane-audio-worker \
 
 ---
 
-# 🛡 Security Model
+# 🔐 Security Stack
 
-## Enterprise Security Stack
-- Firebase Admin SDK isolation
-- Firestore client write lock
-- JWT authentication
-- IAM role separation
-- Secure environment configs
-- Dead Letter Queue protection
-- Retry isolation engine
-- Cloud audit logging
+- Firebase Admin isolation
+- JWT validation
+- IAM role segmentation
 - Secret Manager integration
+- Firestore write protection
+- Retry isolation engine
+- Audit logging
+- Input sanitization
 - Rate limiting
 
 ---
 
-# 🔥 Retry + Recovery Engine
+# 📈 Monitoring Stack
 
-Hyperplane includes:
-- Automatic retry logic
-- Exponential backoff
-- DLQ failover
-- Task replay support
-- Recovery workflows
-- Failure analytics
-
----
-
-# 📈 Monitoring
-
-Integrated Monitoring:
-- Cloud Monitoring
+Integrated systems:
+- Google Cloud Monitoring
 - Firestore analytics
 - Queue telemetry
-- Agent health tracking
-- GPU execution metrics
-- Audio render progress
+- GPU worker metrics
 - Live orchestration logs
+- Error tracking
+- Agent health monitoring
 
 ---
 
-# ⚙️ Deployment
+# ⚙️ Local Development
 
-## Install Dependencies
+## Install
 
 ```bash
+npm install
 pip install -r requirements.txt
 ```
 
 ---
 
-## Run Local Orchestrator
+## Run Frontend
+
+```bash
+npm run dev
+```
+
+---
+
+## Run Orchestrator
 
 ```bash
 python orchestrator.py
@@ -350,27 +272,11 @@ python orchestrator.py
 
 ---
 
-## Deploy Cloud Functions
-
-```bash
-firebase deploy --only functions
-```
-
----
-
-## Deploy Frontend
-
-```bash
-firebase deploy --only hosting
-```
-
----
-
-# 🧪 Sample Task Payload
+# 🧪 Sample Payload
 
 ```json
 {
-  "prompt": "Generate cinematic AI soundtrack using Lyria 3",
+  "prompt": "Generate cinematic soundtrack using Lyria 3",
   "genre": "cinematic",
   "duration": 45,
   "voice": "ambient"
@@ -382,91 +288,56 @@ firebase deploy --only hosting
 # 🌍 Enterprise Use Cases
 
 ✅ AI SaaS Platforms  
-✅ Autonomous AI Studios  
-✅ Real-Time AI Agents  
-✅ Video Automation  
-✅ Generative Audio Systems  
-✅ AI Customer Support  
-✅ Chrome Extensions  
+✅ Autonomous Studios  
+✅ Chrome Extension Backends  
 ✅ Enterprise Dashboards  
 ✅ AI Workflow Routing  
-✅ Semantic Search Platforms  
-
----
-
-# 🧠 Hyperplane Philosophy
-
-> “Infrastructure should think.
-> Systems should heal.
-> AI should orchestrate itself.”
+✅ Semantic Search Systems  
+✅ Realtime Analytics  
+✅ Generative Media Pipelines  
 
 ---
 
 # 👨‍💻 Founder
 
 ## Mohammad Nisar
+
 Founder of Nisaraistudio
 
 Building:
 - Autonomous AI ecosystems
-- Scalable cloud intelligence
-- Enterprise AI orchestration systems
-- Future-ready digital infrastructure
+- Enterprise orchestration systems
+- Cloud-native intelligence
+- Future-ready AI infrastructure
 
 ---
 
 # 🌐 Nisaraistudio
 
 ### Digital Solutions Hub
+
 AI • Automation • Infrastructure • Orchestration
 
 Services:
 - AI Automation
-- E-Commerce Systems
 - Firebase Infrastructure
-- Python Engineering
 - Cloud Architecture
-- AI Memory Systems
 - Gemini Integrations
-- Chrome Extension Backends
+- AI Memory Systems
+- Python Engineering
+- Chrome Extension APIs
 
 📧 nisarsn@gmail.com
 
 ---
 
-# 🚀 Roadmap
-
-## Phase 1
-- Core orchestration
-- Vector memory
-- GPU audio workers
-
-## Phase 2
-- Multi-agent collaboration
-- Autonomous planning
-- AI analytics dashboard
-
-## Phase 3
-- Self-improving orchestration
-- Distributed memory clusters
-- Enterprise AI marketplace
-
----
-
-# ⚖️ License
-
-Enterprise Infrastructure License  
-Copyright © Nisaraistudio
-
----
-
-# ⭐ Hyperplane Status
+# 🚀 Status
 
 ```text
-SYSTEM STATUS: GODMODE ACTIVATED
-ORCHESTRATION: ACTIVE
-MEMORY ENGINE: ONLINE
-GPU WORKERS: READY
-VECTOR INDEX: SYNCHRONIZED
-AUTONOMOUS FABRIC: OPERATIONAL
+SYSTEM STATUS: OPERATIONAL
+ORCHESTRATOR: ACTIVE
+MEMORY ENGINE: SYNCHRONIZED
+GPU WORKERS: ONLINE
+VECTOR INDEX: READY
+REALTIME DASHBOARD: ACTIVE
 ```
