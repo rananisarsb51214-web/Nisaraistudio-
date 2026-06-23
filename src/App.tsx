@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Github, Twitter, Linkedin, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Analytics } from '@vercel/analytics/react';
 
 /**
  * @license
@@ -194,6 +195,7 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Analytics />
     </div>
   );
 }
