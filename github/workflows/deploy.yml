@@ -1,0 +1,102 @@
+name: RANANISAR Marketing Toolkit CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - production
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Linter
+        run: npm run lint --if-present
+
+      - name: Run Tests
+        run: npm test --if-present
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-build
+          path: .next
+
+  security-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Dependency Audit
+        run: npm audit --audit-level=high || true
+
+  deploy-vercel:
+    needs:
+      - build
+      - security-scan
+
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Pull Vercel Environment
+        run: |
+          vercel pull \
+          --yes \
+          --environment=production \
+          --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Vercel Project
+        run: |
+          vercel build \
+          --prod \
+          --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Vercel
+        run: |
+          vercel deploy \
+          --prebuilt \
+          --prod \
+          --token=${{ secrets.VERCEL_TOKEN }}
