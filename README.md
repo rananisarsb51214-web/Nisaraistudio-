@@ -1,4 +1,4 @@
-# NISAR AI STUDIO — MASTER SYSTEM PROMPT
+# NISAR AI STUDIO 
 # Version: 1.0
 # Purpose: Full Stack AI Website Builder + AI Agent + Browser Automation + Memory + Template Engine
 # Optimized For: Google AI Studio (Gemini)
