@@ -1,6 +1,4 @@
-# Nisaraistudio 🚀
-
-## Description
+# Nisaraistudio 
 
 Nisaraistudio- is a React-based portfolio website demonstrating dynamic UI elements and interactive components, built with Vite, Tailwind CSS, and Framer Motion. While the repository's description points towards a broader AI Website Builder and Development Agent, the current codebase focuses on a functional frontend portfolio showcasing interactive elements like an animated modal for project details and a contact form.
 
