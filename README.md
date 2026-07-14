@@ -126,8 +126,81 @@ Nisaraistudio-
 └── vite.config.ts          # Vite build tool configuration
 ```
 
-*(Note: Many directories like `ai-router`, `analytics`, etc., contain only a `.keep` file, suggesting they are intended for future development or modularity.)*
+*(Note: Many directories like `ai-router`, `analytics`, etc., contain only a `.keep` file, suggesting they are intended for future development or modularity.)*You are a senior software architect and full‑stack developer. Build a complete, production‑ready system for "Nisar AI Studio – Website & Engagement Builder" with the following specifications:
 
+**OVERALL SYSTEM:**
+- A platform where users can:
+  1. Build websites (drag‑and‑drop or AI‑generated) using a visual editor.
+  2. Create engagement tools (quizzes, polls, forms, surveys, interactive content).
+  3. Launch full‑stack applications (e.g., SaaS, e‑commerce, dashboards) with one click.
+  4. Deploy to multiple platforms (web, mobile, social media pages like Facebook/Instagram).
+  5. Manage all content with a memory agent (saves pages, user preferences, project states).
+  6. Integrate Google Gemini AI for content generation, copywriting, and design suggestions.
+  7. Include a social media marketing page (post scheduler, analytics, engagement tracking).
+  8. Monetize via Stripe subscriptions and usage‑based billing.
+  9. Use a real‑time database (e.g., Supabase or Firebase) for live collaboration and instant updates.
+  10. Ensure all UI components are fully responsive, active, and functional with real‑time sync.
+
+**TECHNICAL ARCHITECTURE (Microservices + Event‑Driven):**
+- Frontend: Next.js (React) + Tailwind CSS + Shadcn UI.
+- Backend: Node.js + TypeScript microservices, each with its own PostgreSQL database (or use a shared DB with schema isolation).
+- Realtime: Supabase Realtime or Firebase Firestore for live updates.
+- AI: Google Gemini API (via AI Gateway).
+- Memory: A dedicated Memory Service that stores user sessions, page versions, and agent states (using pgvector for embeddings).
+- Deployment Agent: Kubernetes/Cloud Run deployment engine that can spin up preview URLs and production environments.
+- Social Media: Integrate with Facebook Graph API, Instagram Basic Display, Twitter API, LinkedIn API for posting and analytics.
+- Monetization: Stripe Checkout, subscription management, usage tracking (credits).
+- Orchestration: Use BullMQ (Redis) for async tasks (AI generation, deployment, social scheduling).
+- Observability: Prometheus + Grafana, OpenTelemetry tracing, structured logging.
+
+**COMPONENTS TO GENERATE (each as a separate microservice with its own Helm chart and Dockerfile):**
+
+1. **Builder Service** – CRUD for websites, pages, components; handles drag‑and‑drop state; triggers AI suggestions via Gemini.
+2. **Engagement Service** – Manages quizzes, polls, forms, surveys; stores responses; provides analytics.
+3. **Deployment Agent** – Takes a built project, generates build artifacts, deploys to Vercel, Netlify, or Kubernetes preview environments; exposes preview URLs.
+4. **Memory Service** – Saves all user sessions, page versions, and agent contexts; supports embedding search (pgvector) for retrieving past decisions.
+5. **Social Media Service** – Connects to social platforms; schedules posts; aggregates engagement metrics.
+6. **AI Gateway (existing)** – Enhanced to route to Gemini and other models for content generation.
+7. **Billing Service (existing)** – Extended with usage‑based pricing and credit tracking.
+8. **Realtime Sync Service** – WebSocket / Supabase Realtime integration for collaborative editing.
+
+**DELIVERY REQUIREMENTS:**
+- Provide **full source code** for all services (Node.js + TypeScript).
+- Provide **Dockerfiles** and **Helm charts** (using the nisar‑common library).
+- Provide **umbrella chart values.yaml** integration.
+- Provide **migration scripts** for each database.
+- Provide **test scripts** for each API endpoint.
+- Provide a **README** with local development setup and deployment instructions.
+
+**FOCUS ON:**
+- Security: JWT authentication, RBAC, API keys.
+- Scalability: horizontal scaling via HPA and KEDA (queue‑based).
+- Real‑time: WebSocket or Server‑Sent Events for live updates.
+- Responsiveness: all frontend components must be mobile‑first.
+- Active: real‑time collaboration (like Google Docs) using Yjs or CRDTs.
+
+**OUTPUT FORMAT:**
+- Full directory structure for each service.
+- Complete code for every file (server.ts, routes, handlers, models, clients, workers, etc.).
+- Complete Helm charts with templates and values.
+- Umbrella chart integration snippet.
+- A detailed README covering all services and how to run them.
+
+**Assumptions:**
+- Redis, PostgreSQL, and MinIO are already deployed in the cluster.
+- AI Gateway and Notification Service already exist.
+- Use environment variables for all configuration.
+
+Generate everything now.
+Component Description
+Builder Service Visual website builder with component library, drag‑and‑drop state, AI‑assisted design.
+Engagement Service Create quizzes, polls, surveys with real‑time response collection.
+Deployment Agent One‑click deploy to multiple platforms (Vercel, Netlify, Cloud Run) with preview URLs.
+Memory Service Persistent memory across sessions, saves pages, user preferences, agent decisions (with pgvector).
+Social Media Service Post scheduler, analytics dashboard, cross‑platform publishing.
+Realtime Sync WebSocket + Supabase Realtime for collaborative editing.
+Billing (extended) Stripe subscriptions + usage‑based credits (pay‑per‑API‑call).
+Frontend Next.js app with Shadcn UI, fully responsive, real‑time collaboration.helm upgrade --install nisar-platform ./nisar-platform --set builder.enabled=true --set engagement.enabled=true --set deploymentAgent.enabled=true --set memoryService.enabled=true --set socialMedia.enabled=true
 ## Contributing 🤝
 
 Contributions are welcome! If you'd like to contribute, please follow these steps:
@@ -154,11 +227,4 @@ No explicit license information was found in the repository's metadata or config
 
 © 2026 Nisarai Studio. All rights reserved.
 
---- 
 
-> **Like this project?** ⭐ Star | 🍴 Fork | ⬆️ Upvote | 📝 Issues
-
----
-
----
-**<p align="center">Generated by [ReadmeCodeGen](https://www.readmecodegen.com/)</p>**
