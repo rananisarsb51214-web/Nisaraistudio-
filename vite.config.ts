@@ -21,4 +21,4 @@ export default defineConfig(({mode}) => {
       hmr: process.env.enable_HMR !== 'true',
     },
   };
-});
+});1080e2d95590a15765248a94160b6a4874f101f7
